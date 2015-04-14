@@ -1,0 +1,23 @@
+{
+  "name": "fewagency/twbs-blade",
+  "description": "Blade templates for Twitter Bootstrap",
+  "keywords": [
+    "laravel",
+    "blade",
+    "bootstrap",
+    "twbs"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bjorn Nilsved",
+      "email": "bjorn.nilsved@fewagency.se"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "FewAgency\\TwbsBlade\\": "src"
+    }
+  }
+}
