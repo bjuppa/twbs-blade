@@ -33,6 +33,7 @@ class TwbsBladeServiceProvider extends ServiceProvider {
 		//TODO: move this input composer to a class, so it can be registered for other templates
 		View::composer($this->package_reference_name . '::input.*', function ($view)
 		{
+			//TODO: throw error if $view->name not set
 			$data['control_id'] = $this->package_reference_name . $view->form_id . $view->name; //TODO: handle unique id if name is repeated within the form (with arrays?)
 			if ( $view->errors->has($view->name) )
 			{
