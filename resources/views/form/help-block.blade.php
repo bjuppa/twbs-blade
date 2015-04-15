@@ -1,0 +1,1 @@
+<{{ $tag or 'span' }} class='help-block'>{!! $content !!}</{{ $tag or 'span' }}>
