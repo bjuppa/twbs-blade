@@ -6,7 +6,7 @@ Add this to your list of providers in config/app.php:
 > 'FewAgency\TwbsBlade\TwbsBladeServiceProvider',
 
 Then pull in the package's views like this:
-> @include('bsb::input.text', ['name'=>'test', 'type'=>'email', 'label'=>'Your email address'])
+> @include('bsb::input.text', ['name'=>'test', 'label'=>'Your email address'])
 
 ## Optional stuff
 The 'bsb' prefix can be changed if you extend the service provider class in your app and set your desired $package_reference_name in there
