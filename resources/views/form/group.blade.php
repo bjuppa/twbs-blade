@@ -11,8 +11,8 @@
 	{{-- TODO: add optional form-control-feedback icon just after form control/group --}}
 
 	{{-- TODO: close the 2nd column div here if the description should go in it's own column. Also supply the description block with a col width in this case --}}
-	@if(isset($control_description_id))
+	@unless(empty($control_description_id))
 		@include($bsb_pkg_ref.'::form.control.description')
-	@endif
+	@endunless
 	{{-- TODO: close the 2nd column div if open --}}
 </div>
