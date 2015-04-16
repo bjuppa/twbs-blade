@@ -30,25 +30,8 @@ class TwbsBladeServiceProvider extends ServiceProvider {
 
 		View::share('bsb_pkg_ref', $this->package_reference_name);
 
-		//TODO: move this input composer to a class, so it can be registered for other templates
-		View::composer($this->package_reference_name . '::input.*', function ($view)
-		{
-			//TODO: throw error if $view->name not set
-			$data['control_id'] = $this->package_reference_name . $view->form_id . $view->name; //TODO: handle unique id if name is repeated within the form (with arrays?)
-			if ( $view->errors->has($view->name) )
-			{
-				$data['has_error'] = true;
-				//TODO: if errors are to be displayed at start of form, collect this into that section instead
-				$view->nest('error_content', $this->package_reference_name . '::form.control.errors',
-						[ 'errors' => $view->errors->get($view->name) ]);
-			}
-			if ( $view->error_content or $view->help_text or $view->help_content )
-			{
-				$data['control_description_id'] = $data['control_id'] . 'desc';
-			}
-
-			$view->with($data);
-		});
+		View::composer($this->package_reference_name . '::input.*', 'FewAgency\TwbsBlade\ViewComposers\InputComposer');
+		View::composer($this->package_reference_name . '::form', 'FewAgency\TwbsBlade\ViewComposers\FormComposer');
 	}
 
 
