@@ -36,6 +36,7 @@ class FormComposer {
 				$input = view($view->bsb_pkg_ref . '::input.group', [ 'content' => $input ], $view->getData());
 			}
 		}
+        //TODO: add form-horizontal and form-inline options
 	}
 
 }
