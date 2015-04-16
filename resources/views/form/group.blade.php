@@ -1,4 +1,4 @@
-{{-- TODO: add optional has-feedback (icon) to textual form-group --}}
+{{-- TODO: add optional has-feedback (icon) if textual form-group --}}
 {{-- TODO: add size options to form-group --}}
 <div class="form-group {{ empty($has_error) ? '' : 'has-error' }}">
 	{{-- TODO: Optionally skip the label, eg for checkboxes etc --}}
