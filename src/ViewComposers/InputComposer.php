@@ -17,7 +17,7 @@ class InputComposer
     public function compose(View $view)
     {
         if (empty($view->name) and !str_contains($view->getName(), ['csrf', 'group'])) {
-            throw new \Exception('Input need a name parameter set in ' . $view->getPath());
+            throw new \Exception('Input needs a name parameter set in ' . $view->getPath());
         }
         $data['control_id'] = $view->bsb_pkg_ref . $view->form_id . $view->name; //TODO: handle unique id if name is repeated within the form (with arrays?)
         if ($view->errors->has($view->name))  //TODO: also pull out a named form's errors
