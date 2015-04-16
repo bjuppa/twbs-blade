@@ -37,7 +37,7 @@ class TwbsBladeServiceProvider extends ServiceProvider {
 			$data['control_id'] = $this->package_reference_name . $view->form_id . $view->name; //TODO: handle unique id if name is repeated within the form (with arrays?)
 			if ( $view->errors->has($view->name) )
 			{
-				$data['has_errors'] = true;
+				$data['has_error'] = true;
 				//TODO: if errors are to be displayed at start of form, collect this into that section instead
 				$view->nest('error_content', $this->package_reference_name . '::form.control.errors',
 						[ 'errors' => $view->errors->get($view->name) ]);

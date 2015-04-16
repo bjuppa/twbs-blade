@@ -1,6 +1,6 @@
 {{-- TODO: add optional has-feedback (icon) to textual form-group --}}
 {{-- TODO: add size options to form-group --}}
-<div class="form-group {{ empty($has_errors) ? '' : 'has-error' }}">
+<div class="form-group {{ empty($has_error) ? '' : 'has-error' }}">
 	{{-- TODO: Optionally skip the label, eg for checkboxes etc --}}
 	{{-- TODO: Send in col size to label to handle horizontal forms --}}
 	@include($bsb_pkg_ref.'::form.control.label')
