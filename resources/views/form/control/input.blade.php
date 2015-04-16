@@ -2,8 +2,11 @@
        name="{{ $name }}"
        class="form-control"
        id="{{ $control_id }}"
-@if(isset($control_description_id))
+@unless(empty($control_description_id))
        aria-describedby="{{ $control_description_id }}"
-       @endif
+@endif
        value="{{ old($name, isset($value) ? $value : null) }}"
+@unless(empty($has_error))
+	aria-invalid="true"
+@endif
 		       >
