@@ -1,9 +1,10 @@
 {{-- TODO: add optional has-feedback (icon) if textual form-group --}}
 {{-- TODO: add size options to form-group --}}
 <div class="form-group {{ empty($has_error) ? '' : 'has-error' }}">
-    {{-- TODO: Optionally skip the label, eg for checkboxes etc --}}
     {{-- TODO: Put col-size around label to handle horizontal forms --}}
-    @include($bsb_pkg_ref.'::form.control.label')
+    @if(empty($no_label))
+        @include($bsb_pkg_ref.'::form.control.label')
+    @endif
 
     {{-- TODO: open a div for the 2nd column here for horizontal forms --}}
 

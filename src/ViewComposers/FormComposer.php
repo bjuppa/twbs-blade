@@ -24,7 +24,11 @@ class FormComposer
             if (is_array($input)) {
                 if (count(array_filter(array_keys($input), 'is_string'))) {
                     //The array contains named keys, generate inputs from these options
-                    $input = view($view->bsb_pkg_ref . '::input.text', array_merge(compact('name'), $input), $view->getData());
+                    $view_name = $view->bsb_pkg_ref . '::input.' . (empty($input['type']) ? 'text' : $input['type']);
+                    if(!view()->exists($view_name)) {
+                        $view_name = $view->bsb_pkg_ref . '::input.' . 'text';
+                    }
+                    $input = view($view_name, array_merge(compact('name'), $input), $view->getData());
                 } else {
                     //The array contains html strings, display them together within a form-group
                     $input = view($view->bsb_pkg_ref . '::input.group', ['content' => implode("\n", $input)], $view->getData());
