@@ -12,7 +12,7 @@ class InputComposer
      *
      * @param  View $view
      *
-     * @return void
+     * @throws \Exception
      */
     public function compose(View $view)
     {
@@ -23,12 +23,12 @@ class InputComposer
         if ($view->errors->has($view->name))  //TODO: also pull out a named form's errors
         {
             $data['has_error'] = true;
-            $errors_view = $view->bsb_pkg_ref . '::form.control.errors';
-            //TODO: if errors are to be displayed at start of form, collect this into that section instead
-            $view->nest('error_content', $errors_view, ['errors' => $view->errors->get($view->name)]);
+            if (!$view->group_form_errors) {
+                $view->nest('control_error_content', $view->bsb_pkg_ref . '::form.control.errors', ['errors' => $view->errors->get($view->name)]);
+            }
         }
 
-        if ($view->error_content or $view->help_text or $view->help_content) {
+        if ($view->control_error_content or $view->help_text or $view->help_content) {
             $data['control_description_id'] = $data['control_id'] . 'desc';
         }
 
