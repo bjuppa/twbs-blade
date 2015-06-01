@@ -3,8 +3,8 @@
         <input type="{{ $type or 'checkbox' }}" name="{{ $name }}" id="{{ $control_id }}"
                value="{{ $value = isset($value) ? $value : 1 }}"
                 {{-- set checked --}}
-                @if(!empty($checked) or old($name) == $value )
-                    checked
+        @if(!empty($checked) or old($name) == $value )
+               checked
                 @endif
         @unless(empty($control_description_id))
                aria-describedby="{{ $control_description_id }}"
@@ -15,7 +15,11 @@
                 {{-- set attribute disabled as option --}}
                 >
         @unless(empty($no_label))
-            {{ $label }}
+            @if(isset($html_label))
+                {!! $html_label !!}
+            @else
+                {{ $label }}
+            @endif
         @endunless
     </label>
 </div>
