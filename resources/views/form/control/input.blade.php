@@ -8,7 +8,7 @@ if (empty($input_attributes['type'])) {
 if (!empty($type)) {
     $input_attributes['type'] = $type;
 }
-$default_attributes = ['class' => 'form-control', 'value' => old($name)];
+$default_attributes = ['class' => 'form-control', 'value' => old($name, empty($model->$name) ? null : $model->$name)];
 if (!empty($control_description_id)) {
     $default_attributes['aria-describedby'] = $control_description_id;
 }
