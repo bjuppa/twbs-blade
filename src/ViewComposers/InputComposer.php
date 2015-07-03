@@ -28,7 +28,7 @@ class InputComposer
             }
         }
 
-        if ($view->control_error_content or $view->help_text or $view->help_content) {
+        if ($view->control_error_content or $view->help_text or $view->html_help_text) {
             $data['control_description_id'] = $data['control_id'] . 'desc';
         }
 
