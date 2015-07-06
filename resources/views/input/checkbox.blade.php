@@ -1,3 +1,4 @@
+{{-- TODO: make this handle multiple checkbox-inputs in the same group --}}
 @extends($bsb_pkg_ref.'::form.group')
 
 @section($bsb_pkg_ref.'control_or_group')

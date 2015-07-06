@@ -2,7 +2,7 @@
     <label>
         <input type="{{ $type or 'checkbox' }}" name="{{ $name }}" id="{{ $control_id }}"
                value="{{ $value = isset($value) ? $value : 1 }}"
-                {{-- set checked --}}
+                {{-- TODO: set checked --}}
         @if(!empty($checked) or old($name) == $value or !empty($model->$name) )
                checked
                 @endif
@@ -12,7 +12,7 @@
         @unless(empty($has_error))
                aria-invalid="true"
                 @endunless
-                {{-- set attribute disabled as option --}}
+                {{-- TODO: set attribute disabled as option --}}
                 >
         @unless(empty($no_label))
             @if(isset($html_label))
