@@ -4,11 +4,13 @@
 class HtmlBuilder
 {
 
+    public static $void_elements = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'menuitem', 'meta', 'param', 'source', 'track', 'wbr'];
+
     public static function element($tag_name, $attributes = [], $content = null, $default_attributes = [], $forced_attributes = [])
     {
         $html_string = "<$tag_name";
         $html_string .= self::compile_attributes($attributes, $default_attributes, $forced_attributes);
-        $html_string .= $content ? ">$content</$tag_name>" : "/>";
+        $html_string .= (empty($content) and in_array($tag_name, self::$void_elements)) ? '>' : ">$content</$tag_name>";
         return $html_string;
     }
 
