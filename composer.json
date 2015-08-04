@@ -10,11 +10,13 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Bjorn Nilsved",
+      "name": "Björn Nilsved",
       "email": "bjorn.nilsved@fewagency.se"
     }
   ],
-  "require": {},
+  "require": {
+    "laravel/framework": "5.0.x|5.1.x"
+  },
   "autoload": {
     "psr-4": {
       "FewAgency\\TwbsBlade\\": "src"
