@@ -1,14 +1,3 @@
-{{--
-Include to create a full form with error handled inputs.
-
-Usage example:
-@include('bsb::form', [ 'groups' => [
-	'email' => ['label' => 'Your email', 'type' => 'email'],
-	'password' => ['label' => 'Your password', 'type' => 'password'],
-	['<button type="submit" class="btn btn-primary">Login</button>', '<a class="btn btn-link" href="'. url('/password/email') .'">Forgot Your Password?</a>' ],
-]])
-
---}}
 <form role="{{ $role or 'form' }}" method="{{ $method or 'POST' }}"
 @unless(empty($action))
       action="{{ $action }}"
