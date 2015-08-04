@@ -75,7 +75,7 @@ In addition, most HTML5 input types work fine, e.g. `number`, `email`, etc.
 The multiselect types will automatically add brackets to the form input's name to access selected values as an array at the server side.
 
 ### label/html_label
-Displayed before the input and connected to it via element id's. Defaults to `name` if not supplied. 
+Displayed before the input and connected to it via element's id. Defaults to `name` if not supplied. 
 
 ### help_text/html_help_text
 This is displayed after the input and connected to it with `aria-describedby`.
