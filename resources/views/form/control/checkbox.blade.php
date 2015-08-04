@@ -14,12 +14,12 @@
                 @endunless
                 {{-- TODO: set attribute disabled as option --}}
                 >
-        @unless(empty($no_label))
+        @if(empty($no_label))
             @if(isset($html_label))
                 {!! $html_label !!}
             @else
                 {{ $label }}
             @endif
-        @endunless
+        @endif
     </label>
 </div>
