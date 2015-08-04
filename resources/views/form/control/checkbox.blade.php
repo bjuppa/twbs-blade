@@ -2,7 +2,6 @@
     <label>
         <input type="{{ $type or 'checkbox' }}" name="{{ $name }}" id="{{ $control_id }}"
                value="{{ $value = isset($value) ? $value : 1 }}"
-                {{-- TODO: set checked --}}
         @if(!empty($checked) or old($name) == $value or !empty($model->$name) )
                checked
                 @endif
