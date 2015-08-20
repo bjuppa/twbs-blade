@@ -21,11 +21,12 @@ class InputComposer
             throw new \Exception('Input needs a "name" parameter set in ' . $view->getPath());
         }
         $data['control_id'] = $view->bsb_pkg_ref . $view->form_id . $view->name; //TODO: handle unique id if name is repeated within the form with [] array syntax and radios/checkboxes
-        if ($view->errors->has($view->name))  //TODO: also pull out a named form's errors
+        if (!empty($view->name) and $view->errors->has($view->name))  //TODO: also pull out a named form's errors
         {
             $data['has_error'] = true;
             if (!$view->group_form_errors) {
-                $view->nest('control_error_content', $view->bsb_pkg_ref . '::form.control.errors', ['errors' => $view->errors->get($view->name)]);
+                $view->nest('control_error_content', $view->bsb_pkg_ref . '::form.control.errors',
+                    ['errors' => $view->errors->get($view->name)]);
             }
         }
 
