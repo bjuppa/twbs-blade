@@ -88,7 +88,7 @@ class HtmlBuilder
         //Merge in the rest
         foreach (self::cleanNumericAttributeKeys($attributes) as $key => $value) {
             if ($key == 'class' and isset($combined_attributes[$key])) {
-                //The attribute class is merged from arrays of classes, defaults are not overwritten
+                //The class attribute is merged from arrays of classes, defaults are not overwritten
                 $combined_attributes[$key] = array_merge((array)$combined_attributes[$key], (array)$value);
             } else {
                 //All other defaults are overwritten
@@ -109,15 +109,27 @@ class HtmlBuilder
     protected static function generateAttributesString($attributes = [])
     {
         $attribute_strings = [];
-        foreach ($attributes as $key => $value) {
-            if ($value !== false and !is_null($value)) {
-                if (is_array($value)) {
-                    $value = implode($key == 'class' ? ' ' : ',', $value);
+        foreach ($attributes as $attribute_name => $attribute_value) {
+            if ($attribute_value !== false and !is_null($attribute_value)) {
+                if (is_array($attribute_value)) {
+                    //This attribute is a list of several values
+                    //We'll check each value and collect only the thruthy ones
+                    $values = [];
+                    foreach ($attribute_value as $key => $value) {
+                        if (is_int($key)) {
+                            //If the key is numeric, the value is put in the list
+                            $values[] = $value;
+                        } elseif ($value) {
+                            //If the key is a string, it's put in the list if the value is truthy
+                            $values[] = $key;
+                        }
+                    }
+                    $attribute_value = implode($attribute_name == 'class' ? ' ' : ',', $values);
                 }
-                if ($value === true) {
-                    $value = $key;
+                if ($attribute_value === true) {
+                    $attribute_value = $attribute_name;
                 }
-                $attribute_strings[] = $key . '="' . e($value) . '"';
+                $attribute_strings[] = $attribute_name . '="' . e($attribute_value) . '"';
             }
         }
 
