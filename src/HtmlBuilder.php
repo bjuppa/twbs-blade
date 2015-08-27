@@ -60,9 +60,9 @@ class HtmlBuilder
     {
         $result = [];
         foreach ($attributes as $key => $value) {
-            if (is_numeric($key)) {
-                if (is_array($value) or empty($value) or is_numeric($value)) {
-                    //TODO: log warning: value is not valid for usage as key
+            if (is_int($key)) {
+                if (is_array($value) or is_int($value) or empty($value)) {
+                    //TODO: log warning: value is not valid for usage as attribute key
                 } else {
                     $result[$value] = true;
                 }
@@ -112,8 +112,7 @@ class HtmlBuilder
         foreach ($attributes as $attribute_name => $attribute_value) {
             if ($attribute_value !== false and !is_null($attribute_value)) {
                 if (is_array($attribute_value)) {
-                    //This attribute is a list of several values
-                    //We'll check each value and collect only the thruthy ones
+                    //This attribute is a list of several values, check each value and build a string from them
                     $values = [];
                     foreach ($attribute_value as $key => $value) {
                         if (is_int($key)) {
@@ -127,9 +126,10 @@ class HtmlBuilder
                     $attribute_value = implode($attribute_name == 'class' ? ' ' : ',', $values);
                 }
                 if ($attribute_value === true) {
-                    $attribute_value = $attribute_name;
+                    $attribute_strings[] = e($attribute_name);
+                } else {
+                    $attribute_strings[] = e($attribute_name) . '="' . e($attribute_value) . '"';
                 }
-                $attribute_strings[] = $attribute_name . '="' . e($attribute_value) . '"';
             }
         }
 
