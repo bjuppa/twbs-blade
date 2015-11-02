@@ -1,8 +1,13 @@
 # Blade templates for Twitter Bootstrap
-A collection of [Laravel Blade templates](http://laravel.com/docs/master/blade) for displaying
+A collection of [Laravel Blade templates](http://laravel.com/docs/blade) for displaying
 [Twitter Bootstrap](http://getbootstrap.com) html elements and components.
 
-## Configuration
+Depends on [fewagency/fluent-html](https://github.com/fewagency/fluent-html)
+to build some of the more complex html structures. 
+
+## Quick install & configuration
+> composer require fewagency/twbs-blade
+
 Add this to your list of providers in config/app.php:
 ```php
 FewAgency\TwbsBlade\TwbsBladeServiceProvider::class,

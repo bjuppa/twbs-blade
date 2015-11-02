@@ -15,7 +15,8 @@
     }
   ],
   "require": {
-    "laravel/framework": "5.0.x|5.1.x"
+    "laravel/framework": "5.0.x|5.1.x",
+    "fewagency/fluent-html": "1.*"
   },
   "autoload": {
     "psr-4": {
