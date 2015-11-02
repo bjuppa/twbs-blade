@@ -133,4 +133,4 @@ You may publish the blade templates to your project's `views/vendor` directory f
 ## Development
 [fewagency/twbs-blade-testenv](https://github.com/fewagency/twbs-blade-testenv) is a development Laravel project
 that uses this package.
-Good for playing around with the code in its natural habitat.
+Good for playing around with the code in its natural habitat...
