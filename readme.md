@@ -5,7 +5,7 @@ A collection of [Laravel Blade templates](http://laravel.com/docs/master/blade) 
 ## Configuration
 Add this to your list of providers in config/app.php:
 ```php
-'FewAgency\TwbsBlade\TwbsBladeServiceProvider',
+FewAgency\TwbsBlade\TwbsBladeServiceProvider::class,
 ```
 
 ## Usage examples
