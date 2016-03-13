@@ -1,11 +1,16 @@
 # Blade templates for Twitter Bootstrap
-A collection of [Laravel Blade templates](http://laravel.com/docs/master/blade) for displaying [Twitter Bootstrap](http://getbootstrap.com) html elements and components.
+A collection of [Laravel Blade templates](http://laravel.com/docs/blade) for displaying
+[Twitter Bootstrap](http://getbootstrap.com) html elements and components.
 
+Depends on [fewagency/fluent-html](https://github.com/fewagency/fluent-html)
+to build some of the more complex html structures. 
 
-## Configuration
+## Quick install & configuration
+> composer require fewagency/twbs-blade
+
 Add this to your list of providers in config/app.php:
 ```php
-'FewAgency\TwbsBlade\TwbsBladeServiceProvider',
+FewAgency\TwbsBlade\TwbsBladeServiceProvider::class,
 ```
 
 ## Usage examples
@@ -123,3 +128,9 @@ The `bsb` prefix can be changed if you extend the service provider class in your
 
 You may publish the blade templates to your project's `views/vendor` directory for editing and overriding the original templates:
 > php artisan vendor:publish --provider="FewAgency\TwbsBlade\TwbsBladeServiceProvider"
+
+
+## Development
+[fewagency/twbs-blade-testenv](https://github.com/fewagency/twbs-blade-testenv) is a development Laravel project
+that uses this package.
+Good for playing around with the code in its natural habitat.
