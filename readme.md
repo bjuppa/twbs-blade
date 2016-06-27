@@ -1,4 +1,8 @@
 # Blade templates for Twitter Bootstrap
+
+**This package is no longer maintained!**
+Please see [fewagency/fluent-form](https://github.com/fewagency/fluent-form) and [fewagency/fluent-html](https://github.com/fewagency/fluent-html) for the replacements we use!
+
 A collection of [Laravel Blade templates](http://laravel.com/docs/master/blade) for displaying [Twitter Bootstrap](http://getbootstrap.com) html elements and components.
 
 
